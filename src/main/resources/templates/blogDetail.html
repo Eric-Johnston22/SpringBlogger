@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html layout:decorate="~{\layouts\defaultLayout.html}" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Blog Detail</title>
+</head>
+
+<body>
+	<div class="container" layout:fragment="content">
+		<h1 class="mt-5" th:text="${blog.title}">Blog Title</h1>
+		<table class="table table-striped mt-3">
+			<tbody>
+				<tr>
+					<th>Title</th>
+					<td th:text="${blog.title}">Blog Title</td>
+				</tr>
+				<tr>
+					<th>Content</th>
+					<td th:text="${blog.content}">Blog Content</td>
+				</tr>
+				<tr>
+					<th>Created At</th>
+					<td th:text="${blog.createdAt.toString().replace('T', ' ')}">Created At</td>
+				</tr>
+				<tr>
+					<th>Updated At</th>
+					<td th:text="${blog.updatedAt.toString().replace('T', ' ')}">Updated At</td>
+				</tr>
+			</tbody>
+		</table>
+		<a th:href="@{/blogs}" class="btn btn-secondary">Back to Blogs</a>
+		<form th:action="@{/blogs/{id}/delete(id=${blog.id})}" method="post" style="display:inline;">
+			<input type="hidden" name="_method" value="delete" />
+			<button type="submit" class="btn btn-danger">Delete</button>
+		</form>
+	</div>
+</body>
+
+</html>
