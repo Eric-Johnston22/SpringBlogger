@@ -11,7 +11,7 @@ public class Cst323BlogsiteApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Cst323BlogsiteApplication.class, args);
-		System.out.println("Hello World");
+		System.out.println("Build success! Application running @ localhost:8080 🌍");
 	}
 
 }
