@@ -13,14 +13,13 @@ public class UserModel
 
     
     
-    // Getters and Setters
-
+    // default constructor
     public UserModel()
     {
     	
     }
-    
-
+   
+    // Getters and Setters
 	public Long getId()
     {
         return id;
