@@ -24,4 +24,10 @@ public class UserRepository
         String sql = "SELECT * FROM Users WHERE email = ?";
         return jdbcTemplate.queryForObject(sql, new Object[]{email}, new UserMapper());
     }
+    
+    public UserModel findByUsername(String username)
+    {
+    	String sql = "SELECT * FROM Users WHERE username = ?";
+        return jdbcTemplate.queryForObject(sql, new Object[]{username}, new UserMapper());
+    }
 }
