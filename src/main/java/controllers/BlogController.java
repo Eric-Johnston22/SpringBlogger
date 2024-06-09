@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import jakarta.servlet.http.HttpSession;
 import models.BlogModel;
@@ -22,6 +24,8 @@ public class BlogController {
     @Autowired
     private BlogService blogService;
 
+    // HTML View Methods
+    
     @GetMapping("/blogs")
     public String getAllBlogs(Model model) 
     {
@@ -73,6 +77,14 @@ public class BlogController {
     {
         blogService.deleteBlog(id);
         return "redirect:/blogs";
+    }
+    
+    // REST API Methods
+    
+    @GetMapping("/api/blogs")
+    @ResponseBody
+    public List<BlogModel> getAllBlogsApi() {
+        return blogService.getAllBlogs();
     }
     
 }
