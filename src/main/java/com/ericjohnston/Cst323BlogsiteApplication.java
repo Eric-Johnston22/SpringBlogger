@@ -15,8 +15,6 @@ import org.springframework.context.annotation.ComponentScan;
 public class Cst323BlogsiteApplication {
 
 	public static void main(String[] args) {
-		String value = System.getenv("MYSQLCONNSTR_DB_USER");
-		System.out.println(value);
 		SpringApplication.run(Cst323BlogsiteApplication.class, args);
 		System.out.println("Build success! Application running @ localhost:8080 🌍");
 	}
