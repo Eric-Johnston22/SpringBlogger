@@ -15,19 +15,19 @@ public class UserRepository
 
     public void save(UserModel user)
     {
-        String sql = "INSERT INTO Users (username, email, password, created_at) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO users (username, email, password, created_at) VALUES (?, ?, ?, ?)";
         jdbcTemplate.update(sql, user.getUsername(), user.getEmail(), user.getPassword(), user.getCreatedAt());
     }
     
     public UserModel findByEmail(String email)
     {
-        String sql = "SELECT * FROM Users WHERE email = ?";
+        String sql = "SELECT * FROM users WHERE email = ?";
         return jdbcTemplate.queryForObject(sql, new Object[]{email}, new UserMapper());
     }
     
     public UserModel findByUsername(String username)
     {
-    	String sql = "SELECT * FROM Users WHERE username = ?";
+    	String sql = "SELECT * FROM users WHERE username = ?";
         return jdbcTemplate.queryForObject(sql, new Object[]{username}, new UserMapper());
     }
 }
