@@ -4,6 +4,10 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+# Logs
+logs/
+*.log
+
 ### Environment vars ###
 /src/main/resources/env.properties
 
